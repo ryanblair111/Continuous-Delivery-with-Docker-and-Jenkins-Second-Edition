@@ -45,25 +45,6 @@ pipeline {
                 }
             }
 
-	stage ('Notify if pipeline succeeded') {
-		when {
-		    success()
-		}
-		steps {
-		    echo 'Pipeline ran perfectly'
-		}
-	}
-
-	stage ('Notify if pipeline failed') {
-		when {
-		    failure()
-		}
-		steps {
-		    echo 'Pipeline failure'
-		}
-	}
-
-
     }
         post {
 	    failure {
