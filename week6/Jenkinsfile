@@ -4,13 +4,13 @@ stages {
 	stage('prepare environment') {
 		when { branch 'main' }
 		steps {
-			ecdho 'all branches'
+			echo 'all branches'
 		}
 	}
 	
 	stage('unit test') {
 		when {
-			not {branch 'main' }
+			not { branch 'main' }
 		}
 		steps {
 			echo 'Unit test not main branch'
@@ -20,7 +20,7 @@ stages {
 	
 	stage('cat README') {
 		when {
-			branch "fix*"
+			branch 'fix*'
 		}
 		steps {
 			sh '''
