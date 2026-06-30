@@ -27,7 +27,11 @@ pipeline {
         }
 
         stage ('Run tests other than CodeCoverage on feature branches') {
-            when { branch '*feature*' }
+            when { 
+                expression {
+                    env.BRANCH_NAME.contains("feature")
+                }
+             }
             steps {
                 sh """
                 cd Chapter08/sample1
